@@ -58,38 +58,23 @@ class JogadorIA(Jogador):
                 return pos_vaziads[0]
             elif len(pos_vaziads) == 1 and totais[3] == 8:
                 return pos_vaziads[0]     
-
+            
         #R2
-        for i in range(3):
-            totais = [0,0,0,0]
-            pos_vaziah = []
-            pos_vaziav = []
-            pos_vaziadp = []
-            pos_vaziads = []
-
-            for j in range(3):
-                #linhas
-                totais[0] += self.matriz[i][j]
-                if self.matriz[i][j] == Tabuleiro.DESCONHECIDO:
-                    pos_vaziah.append((i,j))
-                #colunas
-                totais[1] += self.matriz[j][i]
-                if self.matriz[j][i] == Tabuleiro.DESCONHECIDO:
-                    pos_vaziav.append((j,i))
-                #diagonal principal
-                totais[2] += self.matriz[j][j]
-                if self.matriz[j][j] == Tabuleiro.DESCONHECIDO:
-                    pos_vaziadp.append((j,j))
-                #diagonal secundária
-                totais[3] += self.matriz[j][2-j]
-                if self.matriz[j][2-j] == Tabuleiro.DESCONHECIDO:
-                    pos_vaziads.append((j,2-j))
-
-        #R2
-        for i in range(3):
-            for i in range(3):
-                if 
-
+        if self.matriz[0][1] == Tabuleiro.JOGADOR_0 and self.matriz[1][0] == Tabuleiro.JOGADOR_0:
+            if self.matriz[0][0] == Tabuleiro.DESCONHECIDO:
+                return (0,0)
+            
+        elif self.matriz[1][0] == Tabuleiro.JOGADOR_0 and self.matriz[2][1] == Tabuleiro.JOGADOR_0:
+            if self.matriz[2][0] == Tabuleiro.DESCONHECIDO:
+                return (2,0)
+            
+        elif self.matriz[2][1] == Tabuleiro.JOGADOR_0 and self.matriz[1][2] == Tabuleiro.JOGADOR_0:
+            if self.matriz[2][0] == Tabuleiro.DESCONHECIDO:
+                return (2,2)
+            
+        elif self.matriz[1][2] == Tabuleiro.JOGADOR_0 and self.matriz[0][1] == Tabuleiro.JOGADOR_0:
+            if self.matriz[0][2] == Tabuleiro.DESCONHECIDO:
+                return (0,2)
 
         #R3
         if self.matriz[1][1] == Tabuleiro.DESCONHECIDO:

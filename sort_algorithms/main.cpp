@@ -6,18 +6,20 @@
 
 using namespace std;
 
-vector<long long int> read_file(const string &file_name) {
+vector<long long int> read_file(const string &file_name) 
+{
     vector<long long int> data; 
     ifstream file(file_name);
 
-    if (!file.is_open()) { 
+    if (!file.is_open()) 
+    { 
         cerr << "Erro ao abrir o arquivo: " << file_name << endl;
         return data; 
     }
 
     string line;
-    while (getline(file, line)) {
-
+    while (getline(file, line)) 
+    {
         long long int value = stoll(line); 
         data.push_back(value); 
     }
@@ -25,12 +27,15 @@ vector<long long int> read_file(const string &file_name) {
     return data; 
 }
 
-void insertion_sort(vector<long long int>& A) {
-    for (size_t i = 1; i < A.size(); ++i) {
+void insertion_sort(vector<long long int>& A) 
+{
+    for (size_t i = 1; i < A.size(); ++i) 
+    {
         long long int aux = A[i];
         int j = i - 1;
 
-        while (j >= 0 && A[j] > aux) {
+        while (j >= 0 && A[j] > aux) 
+        {
             A[j + 1] = A[j];
             --j;
         }
@@ -39,37 +44,43 @@ void insertion_sort(vector<long long int>& A) {
     }
 }
 
-void selection_sort(vector<long long int>& A) {
-    for (size_t i = 0; i < A.size(); ++i) {
-        long long int cur_minimum = i;
+void selection_sort(vector<long long int>& A) 
+{
+    for (size_t i = 0; i < A.size(); ++i) 
+    {
+        int cur_minimum = i;
 
-        for (size_t j = i + 1; j < A.size(); ++j) {
-            if (A[j] < A[cur_minimum]) {
+        for (size_t j = i + 1; j < A.size(); ++j) 
+        {
+            if (A[j] < A[cur_minimum]) 
                 cur_minimum = j;
-            }
         }
 
         swap(A[i], A[cur_minimum]);
     }
 }
 
-double measure_sort_time(void (*sort_function)(vector<long long int>&), vector<long long int>& data) {
+double measure_sort_time(void (*sort_function)(vector<long long int>&), vector<long long int>& data) 
+{
     vector<long long int> data_copy = data;
     auto start_time = chrono::high_resolution_clock::now(); 
     sort_function(data_copy); 
     auto end_time = chrono::high_resolution_clock::now();  
     chrono::duration<double> duration = end_time - start_time; 
+
     return duration.count(); 
 }
 
-int main() {
+int main() 
+{
     vector<string> files = {
         "instancias-num/num.1000.1.in", "instancias-num/num.1000.2.in", "instancias-num/num.1000.3.in", "instancias-num/num.1000.4.in",
         "instancias-num/num.10000.1.in", "instancias-num/num.10000.2.in", "instancias-num/num.10000.3.in", "instancias-num/num.10000.4.in",
         "instancias-num/num.100000.1.in", "instancias-num/num.100000.2.in", "instancias-num/num.100000.3.in", "instancias-num/num.100000.4.in"
     };
 
-    for (int i = 0; i < files.size(); ++i) {
+    for (size_t i = 0; i < files.size(); ++i) 
+    {
         vector<long long int> data = read_file(files[i]);
 
         double insertion_time = measure_sort_time(insertion_sort, data);

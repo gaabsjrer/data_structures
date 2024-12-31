@@ -12,8 +12,3 @@ def insertion_sort(A, n):
         A[j+1] = aux
     
     return A
-
-A = [2,8,5,3,9]
-print("não ordenado: ", A)
-
-print("ordenado: ", insertion_sort(A, len(A)))

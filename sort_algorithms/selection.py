@@ -10,8 +10,3 @@ def selection_sort(A, n):
         A[i], A[cur_minimum] = A[cur_minimum], A[i]
 
     return A
-
-A = [2,8,5,3,9,4,1]
-print("não ordenado: ", A)
-
-print("ordenado: ", selection_sort(A, len(A)))

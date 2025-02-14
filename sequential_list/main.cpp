@@ -16,6 +16,7 @@ int main()
   }
 
   list.print();
+  cout << endl;
 
   cout << "Inserting 90 in index 11: " << endl;
   list.insert(11, 90);

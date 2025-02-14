@@ -3,11 +3,13 @@
 
 using namespace std;
 
+// inicializa a lista vazia
 SequentialList::SequentialList()
 {
   curSize = 0;
 }
 
+// verifica se a lista está vazia
 bool SequentialList::isEmpty()
 {
   if(curSize == 0)
@@ -16,6 +18,7 @@ bool SequentialList::isEmpty()
   return false;
 }
 
+// verifica se a lista está cheia
 bool SequentialList::isFull()
 {
   if(curSize == maxSize)
@@ -24,11 +27,13 @@ bool SequentialList::isFull()
   return false;
 }
 
+// retorna o tamanho da lista
 int SequentialList::size()
 {
   return curSize;
 }
 
+// retorna o elemento na posição
 int SequentialList::getElement(int index)
 {
   if((index > maxSize) || (index<=0))
@@ -37,14 +42,19 @@ int SequentialList::getElement(int index)
   return arr[index-1];
 }
 
-bool SequentialList::changeElement(int index, int value)
+// 
+int SequentialList::changeElement(int index, int value)
 {
+  int foo;
+
   if((index > maxSize) || (index<=0))
-    return false;
+    return -1;
   
+  foo = arr[index-1];
+
   arr[index-1] = value;
 
-  return true;
+  return foo;
 }
 
 bool SequentialList::insert(int index, int value)

@@ -7,4 +7,4 @@
 
 ## Run 
 
-`list`
+`./list`

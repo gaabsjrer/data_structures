@@ -3,7 +3,7 @@
 
 ## Compilation
 
-`g++ main.cpp sequential_list.cpp -o list`
+`g++ main.cpp -o list`
 
 ## Run 
 

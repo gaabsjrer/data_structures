@@ -1,5 +1,5 @@
 #include <iostream>
-#include "sequential_list.hpp"
+#include "../include/sequential_list.hpp"
 
 using namespace std;
 

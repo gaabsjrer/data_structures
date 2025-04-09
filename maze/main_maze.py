@@ -16,5 +16,3 @@ maze.run()
 maze.init_player()
 
 
-
-
